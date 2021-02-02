@@ -11,7 +11,7 @@ resource "aws_subnet" "int-private-subnet-AZa" {
 
 resource "aws_subnet" "int-private-subnet-AZb" {
   vpc_id            = aws_vpc.landing-zone.id
-  availability_zone = "eu-west-1a"
+  availability_zone = "eu-west-1b"
   cidr_block        = "10.0.1.0/24"
 
   tags = {
@@ -33,7 +33,7 @@ resource "aws_subnet" "int-public-subnet-AZa" {
 
 resource "aws_subnet" "int-public-subnet-AZb" {
   vpc_id            = aws_vpc.landing-zone.id
-  availability_zone = "eu-west-1a"
+  availability_zone = "eu-west-1b"
   cidr_block        = "10.0.3.0/24"
 
   tags = {

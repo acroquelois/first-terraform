@@ -1,5 +1,6 @@
 resource "aws_elb" "lb" {
   security_groups = [aws_security_group.lb-sg.id]
+  instances = [aws_instance.instances-gif-all-a1.id, aws_instance.instances-gif-all-a2.id, aws_instance.instances-gif-all-b1.id, aws_instance.instances-gif-all-b2.id]
 
   subnets = [
     aws_subnet.int-public-subnet-AZa.id,
@@ -14,9 +15,9 @@ resource "aws_elb" "lb" {
   }
 
   health_check {
-    healthy_threshold   = 10
+    healthy_threshold   = 2
     unhealthy_threshold = 2
-    timeout             = 5
+    timeout             = 3
     target              = "HTTP:80/"
     interval            = 30
   }

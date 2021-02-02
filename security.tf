@@ -25,11 +25,11 @@ resource "aws_security_group_rule" "ingress-all-http" {
   from_port         = 80
   to_port           = 80
   protocol          = "tcp"
-  cidr_blocks       = [0.0.0.0/0]
+  cidr_blocks       = ["0.0.0.0/0"]
   security_group_id = aws_security_group.lb-sg.id
 }
 
-resource "aws_security_group_rule" "egress-http-from-instances" {
+resource "aws_security_group_rule" "egress-http-from-lb" {
   type              = "egress"
   from_port         = 80
   to_port           = 80
@@ -52,6 +52,6 @@ resource "aws_security_group_rule" "egress-http-from-instances" {
   from_port         = 80
   to_port           = 80
   protocol          = "tcp"
-  cidr_blocks       = [0.0.0.0/0]
+  cidr_blocks       = ["0.0.0.0/0"]
   security_group_id = aws_security_group.instances-sg.id
 }
